@@ -21,9 +21,16 @@ protected:
 	}
 	bool on_ok() override
 	{
-		point.x = this->get_int(IDC_EDIT1);
-		point.y = this->get_int(IDC_EDIT2);
-		return true;
+		try {
+			point.x = this->get_int(IDC_EDIT1);
+			point.y = this->get_int(IDC_EDIT2);
+			return true;
+		}
+		catch (...) {
+			return false;
+		}
+
+		
 	}
 	void on_cancel() override { }
 	bool on_command(int id, int code) override { return false; }
